@@ -3,6 +3,7 @@ package com.descomplica.frameBlog.Controllers;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.cache.annotation.Cacheable;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
@@ -25,6 +26,7 @@ public class UserController {
         return userService.save(user);
     }
 
+    @Cacheable
     @PostMapping("/getAll")
     private List<User> getAll() {
         return userService.getAll();
